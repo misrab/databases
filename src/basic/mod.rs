@@ -4,11 +4,31 @@ use std::io::prelude::*;
 
 static DB_FILE: &'static str = "db.txt";
 
+pub trait Database {
+  fn summary(&self) -> String;
+}
+
+pub struct BasicDatabase {
+
+}
+
+impl Database for BasicDatabase {
+  fn summary(&self) -> String {
+    format!("{}", "I'm a basic database")
+  }
+
+}
+
 
 
 // open db connection
-pub fn open_connection() {
+pub fn open_connection() -> BasicDatabase {
   let mut file = fs::File::create(DB_FILE);
+
+  let db = BasicDatabase{
+  };
+
+  db
 }
 
 // add the string to the file
