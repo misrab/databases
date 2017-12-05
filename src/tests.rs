@@ -1,11 +1,15 @@
+#![feature(test)]
+
+
+extern crate test;
 
 use basic;
 
 
 #[cfg(test)]
-mod test {
+mod tests {
   use super::*;
-
+  use test::Bencher;
 
 
 
@@ -25,4 +29,9 @@ mod test {
     basic::delete_connection();
   }
 
+
+
+  fn bench_insert(b :&mut Bencher) {
+
+  }
 }
